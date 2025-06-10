@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Ecommerce-site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+  <script src="external.js"></script>
+
+  <!-- Navbar -->
+  <nav class="navbar bg-info">
+    <div class="container-fluid">
+      <div class="navbar">
+        <h2><i class="fas fa-shopping-bag m-3" style="color:chocolate"></i>Fashion Trends</h2>
+      </div>
+      <div class="navbar d-flex">
+
+        <a href="index.html" style="text-decoration: none;">Home</a>
+        <a href="cart.html" class="icon-badge" style="text-decoration: none;">Cart</a></li>
+        <a href="wishlist.html" class="icon-badge" style="text-decoration: none;">Wishlist</a></li>
+
+
+        <span class="icon-badge" id="carticon">
+          <i class="fas fa-shopping-cart" style="font-size:30px;color:rgb(3, 90, 118)"></i>
+          <span class="badge bg-primary" id="cart-badge">0</span>
+        </span>
+        <span class="icon-badge" id="wishlisticon">
+          <i class="fa fa-heart" style="font-size:25px;color:red"></i>
+          <span class="badge bg-danger" id="wishlist-badge">0</span>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Products  -->
+  <div class="container">
+    <div class="row">
+
+      <!-- Product 1  -->
+      <div class="col-md-4">
+        <div class="product-card" idno="1" name="Product 1" price="100" image="images/4.webp">
+
+          <div class="image-container">
+            <img src="images/4.webp" alt="Product 1">
+            <div class="wishlist-icon" onclick="toggleWishlist(1)"><i class="fa fa-heart  fa-regular"
+                style="font-size:25px;color:red"></i></div>
+          </div>
+          <h5>Product 1</h5>
+          <p>Price: ₹100</p>
+          <button class="btn btn-primary" onclick="addToCart(1)">Add to Cart</button>
+        </div>
+      </div>
+
+
+      <!--Product 2 -->
+      <div class="col-md-4">
+        <div class="product-card" idno="2" name="Product 2" price="200" image="images/a.webp">
+
+          <div class="image-container">
+            <img src="images/a.webp" alt="Product 2">
+            <div class="wishlist-icon" onclick="toggleWishlist(2)"><i class="fa fa-heart  fa-regular"
+                style="font-size:25px;color:red"></i></div>
+          </div>
+          <h5>Product 2</h5>
+          <p>Price: ₹200</p>
+          <button class="btn btn-primary" onclick="addToCart(2)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-4">
+        <div class="product-card" idno="3" name="Product 3" price="300" image="images/a.webp">
+
+          <div class="image-container">
+            <img src="images/b.webp" alt="Product 3">
+            <div class="wishlist-icon" onclick="toggleWishlist(3)"><i class="fa fa-heart  fa-regular"
+                style="font-size:25px;color:red"></i></div>
+          </div>
+          <h5>Product 3</h5>
+          <p>Price: ₹300</p>
+          <button class="btn btn-primary" onclick="addToCart(3)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-4">
+        <div class="product-card" idno="4" name="Product 4" price="400" image="images/c.webp">
+
+          <div class="image-container">
+            <img src="images/c.webp" alt="Product 4">
+            <div class="wishlist-icon" onclick="toggleWishlist(4)"><i class="fa fa-heart  fa-regular"
+                style="font-size:25px;color:red"></i></div>
+          </div>
+          <h5>Product 4</h5>
+          <p>Price: ₹400</p>
+          <button class="btn btn-primary" onclick="addToCart(4)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-4">
+        <div class="product-card" idno="5" name="Product 5" price="500" image="images/f.webp">
+
+          <div class="image-container">
+            <img src="images/f.webp" alt="Product 5">
+            <div class="wishlist-icon" onclick="toggleWishlist(5)"><i class="fa fa-heart  fa-regular"
+                style="font-size:25px;color:red"></i></div>
+          </div>
+          <h5>Product 5</h5>
+          <p>Price: ₹500</p>
+          <button class="btn btn-primary" onclick="addToCart(5)">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-4">
+        <div class="product-card" idno="6" name="Product 6" price="600" image="images/e.webp">
+
+          <div class="image-container">
+            <img src="images/e.webp" alt="Product 6">
+            <div class="wishlist-icon" onclick="toggleWishlist(6)"><i class="fa fa-heart fa-regular"
+                style="font-size:25px;color:red"></i></div>
+          </div>
+          <h5>Product 6</h5>
+          <p>Price: ₹600</p>
+          <button class="btn btn-primary" onclick="addToCart(6)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+
+  <div class="footer-container">
+    <div class="footer-content">
+      <i class="fa-solid fa-location-dot"></i>
+      <p>21 Revolution Street Paris,France</p>
+      <i class="fa-solid fa-phone"></i>
+      <p>+1 555 123456</p>
+      <i class="fa-solid fa-envelope"></i>
+      <p>support@company.com</p>
+    </div>
+    <div class="foot">
+      <h1>About the company</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Dignissimos enim adipisci eveniet, earum fugiatsoluta eos vel possimus eius illum libero natus sit voluptate ad
+        vitae doloribus ullam numquam molestiae.</p>
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-linkedin"></i>
+      <i class="fa-brands fa-github"></i>
+    </div>
+  </div>
+</body>
+
+
+<!-- Payment details -->
+<div class="summary-box" id="cart-summary">
+  <h5><i class="fab fa-amazon-pay"></i>Payment details</h5>
+  <br>
+  <div id="summary-items">
+  </div>
+  <hr>
+  <p><strong>Total: ₹<span id="total-amount">0</span></strong></p>
+  <button class="btn btn-success w-100" onclick="payNow()">Pay</button>
+  <i class="fa-solid fa-xmark" id="cart-close" onclick="closeCartSummary()"></i>
+</div>
+
+</body>
+
+</html>

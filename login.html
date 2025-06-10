@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section>
+
+        <div class="form-group">
+            <div style="text-align: center;">
+                <h1>Login</h1>
+            </div>
+            <label for="">Enter Your Username:</label><br>
+            <input type="text" id="uname">
+            <span id="uerror"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Enter Your Password:</label><br>
+            <input type="password" id="pname">
+            <i class="fa fa-eye-slash" onclick="eyeclick()" id="eyeicon" aria-hidden="true"></i>
+            <span id="perror"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="sumbtn"><b>Login</b></button>
+            <h4>you're a new user, please <a href="registration.html">Register</a></h4>
+        </div>
+
+    </section>
+
+
+    <script>
+
+        document.getElementById("sumbtn").addEventListener("click", () => {
+            let uname = document.querySelector("#uname").value;
+            let pname = document.querySelector("#pname").value;
+
+            let uerror = document.querySelector("#uerror");
+            let perror = document.querySelector("#perror");
+
+            uerror.innerHTML = "";
+            perror.innerHTML = "";
+
+            if (uname === "" && pname === "") {
+                uerror.innerHTML = "Username is empty";
+                perror.innerHTML = "Password is empty";
+            } else if (uname !== "" && pname === "") {
+                perror.innerHTML = "Password is empty";
+            } else if (uname === "" && pname !== "") {
+                uerror.innerHTML = "Username is empty";
+            } else {
+                if (uname === "kamalika" && pname === "kamalika05") {
+                    window.location.href = "index.html";
+                } else if (uname !== "kamalika") {
+                    alert("Username is incorrect");
+                } else if (pname !== "kamalika05") {
+                    alert("Password is incorrect");
+                }
+            }
+        });
+
+        function eyeclick() {
+            let icon = document.querySelector("#eyeicon");
+            let pass = document.querySelector("#pname");
+
+            if (pass.type === "password") {
+                pass.type = "text";
+                icon.className = "fa fa-eye";
+            } else {
+                pass.type = "password";
+                icon.className = "fa fa-eye-slash";
+            }
+        }
+
+        function registerUser() {
+            let username = document.getElementById("regUsername").value.trim();
+            let password = document.getElementById("regPassword").value.trim();
+
+            if (username && password) {
+                localStorage.setItem("user", JSON.stringify({ username, password }));
+                alert("Registration successful!");
+                window.location.href = "login.html";
+            } else {
+                alert("Please enter both username and password.");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
