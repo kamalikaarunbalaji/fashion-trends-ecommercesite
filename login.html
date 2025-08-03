@@ -10,23 +10,23 @@
 
 </head>
 
-<body>
+
+<body style="background-color: #f3e5f5;">
     <section>
 
         <div class="form-group">
             <div style="text-align: center;">
                 <h1>Login</h1>
             </div>
-            <label for="">Enter Your Username:</label><br>
-            <input type="text" id="uname">
-            <span id="uerror"></span>
+            <label for="">Email id</label><br>
+            <input type="email" id="email">
+            <span id="emerror" class="error-msg"></span>
         </div>
 
         <div class="form-group">
-            <label for="">Enter Your Password:</label><br>
+            <label for="">Password</label><br>
             <input type="password" id="pname">
-            <i class="fa fa-eye-slash" onclick="eyeclick()" id="eyeicon" aria-hidden="true"></i>
-            <span id="perror"></span>
+            <span id="perror" class="error-msg"></span>
         </div>
 
         <div class="form-group">
@@ -40,59 +40,53 @@
     <script>
 
         document.getElementById("sumbtn").addEventListener("click", () => {
-            let uname = document.querySelector("#uname").value;
-            let pname = document.querySelector("#pname").value;
+            let email = document.querySelector("#email").value;
+            let password = document.querySelector("#pname").value;
 
-            let uerror = document.querySelector("#uerror");
+            let emerror = document.querySelector("#emerror");
             let perror = document.querySelector("#perror");
 
-            uerror.innerHTML = "";
+            emerror.innerHTML = "";
             perror.innerHTML = "";
 
-            if (uname === "" && pname === "") {
-                uerror.innerHTML = "Username is empty";
-                perror.innerHTML = "Password is empty";
-            } else if (uname !== "" && pname === "") {
-                perror.innerHTML = "Password is empty";
-            } else if (uname === "" && pname !== "") {
-                uerror.innerHTML = "Username is empty";
-            } else {
-                if (uname === "kamalika" && pname === "kamalika05") {
-                    window.location.href = "index.html";
-                } else if (uname !== "kamalika") {
-                    alert("Username is incorrect");
-                } else if (pname !== "kamalika05") {
-                    alert("Password is incorrect");
-                }
+            if (!email && !password) {
+                emerror.innerHTML = "Email id is required";
+                perror.innerHTML = "Password is required";
+                return;
             }
+
+            if (!email) {
+                emerror.innerHTML = "Email id is required";
+                return;
+            }
+
+            if (!password) {
+                perror.innerHTML = "Password is required";
+                return;
+            }
+
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (!user) {
+                alert("No registered user found");
+                return;
+            }
+
+            if (email !== user.email) {
+                emerror.innerHTML = "Incorrect Email id";
+                return;
+            }
+
+            if (password !== user.password) {
+                perror.innerHTML = "Incorrect password";
+                return;
+            }
+
+            alert("Login successful!");
+            window.location.href = "index.html";
         });
 
-        function eyeclick() {
-            let icon = document.querySelector("#eyeicon");
-            let pass = document.querySelector("#pname");
-
-            if (pass.type === "password") {
-                pass.type = "text";
-                icon.className = "fa fa-eye";
-            } else {
-                pass.type = "password";
-                icon.className = "fa fa-eye-slash";
-            }
-        }
-
-        function registerUser() {
-            let username = document.getElementById("regUsername").value.trim();
-            let password = document.getElementById("regPassword").value.trim();
-
-            if (username && password) {
-                localStorage.setItem("user", JSON.stringify({ username, password }));
-                alert("Registration successful!");
-                window.location.href = "login.html";
-            } else {
-                alert("Please enter both username and password.");
-            }
-        }
-
+        
 
     </script>
 </body>

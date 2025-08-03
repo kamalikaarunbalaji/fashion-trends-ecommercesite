@@ -94,14 +94,6 @@
   cursor: pointer;
 }
 
-button:hover {
-  /* transform:scale(2,2); */
-}
-
-.wishlist-icon:hover {
-  /* transform:scale(2,2); */
-}
-
 .cart-item i {
   position: absolute;
   right: 15px;

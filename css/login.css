@@ -2,16 +2,16 @@ body {
     display: flex;
     justify-content: center;
     padding: 50px;
-    background-color: rgb(198, 200, 240);
+    background-color: #f4e8ff;
 }
 
 section {
+    margin: 60px;
     width: 300px;
-    height:500px;
+    height: 450px;
     display: grid;
     justify-content: center;
     padding:20px;
-    background-color: rgba(193, 195, 184, 0.871);
     box-shadow: 3px 4px 3px rgb(165, 125, 163);
 }
 
@@ -21,14 +21,8 @@ a {
 
 .form-group {
     margin-top: 12px;
+    font-size: 15px;
     position: relative;
-}
-
-.form-group i {
-    position: absolute;
-    top: 46px;
-    right: 6%;
-    cursor: pointer;
 }
 
 .form-group input {
@@ -36,16 +30,15 @@ a {
     margin-top: 16px;
     border-radius: 5px;
     padding: 10px 20px;
-    position: absolute;
+    position: relative;
     border: none;
 }
 
-.form-group label {
-    font-weight: 200px;
-}
-
-.form-group span {
-    color: rgba(183, 36, 36, 0.887)
+.error-msg {
+    color: red;
+    font-size: 15px;
+    display: block;
+    margin-top: 5px;
 }
 
 .form-group button {
@@ -54,7 +47,8 @@ a {
     border-radius: 5px;
     padding: 10px;
     border: none;
-    background-color: rgb(136, 137, 232);
+    background-color: rgba(80, 146, 66, 0.905);
+    color: white;
 }
 
 .form-group button a {
@@ -64,6 +58,11 @@ a {
 
 .form-group .bgclr {
     background-color: rgb(114, 114, 174);
+}
+
+.form-group label {
+    font-weight: 150px;
+    font-size: 19px;
 }
 
 .option {

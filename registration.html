@@ -9,34 +9,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
-<body style="background-color: rgb(169, 222, 237);">
+<body style="background-color: #f3e5f5;">
 
     <section>
-
+        <div style="text-align: center;">
+            <h1>Registration</h1>
+        </div>
         <div class="form-group">
-            <label for="">Enter Your Username:</label><br>
+            <label for="">Enter Your Username</label><br>
             <input type="text" id="uname" required>
             <span id="uerror"></span>
         </div>
 
         <div class="form-group">
-            <label for="">Enter Your email:</label><br>
+            <label for="">Enter Your email</label><br>
             <input type="email" id="email" required>
-            <span id="emerror"></span>
+            <span id="emerror" class="error-msg"></span>
         </div>
 
         <div class="form-group">
-            <label for="">Enter Your Password:</label><br>
+            <label for="">Enter Your Password</label><br>
             <input type="password" id="pname" required>
-            <i class="fa fa-eye-slash" onclick="eyeclick()" id="eyeicon" aria-hidden="true"></i>
-            <span id="perror"></span>
+            <span id="perror" class="error-msg"></span>
         </div>
 
         <div class="form-group">
-            <label for="">Enter Your confirm Password:</label><br>
+            <label for="">Enter Your confirm Password</label><br>
             <input type="password" id="cpass" required>
-            <i class="fa fa-eye-slash" onclick="eyeclick()" id="eyeicon" aria-hidden="true"></i>
-            <span id="cperror"></span>
+            <span id="cperror" class="error-msg"></span>
         </div>
 
         <div class="form-group">
@@ -51,123 +51,81 @@
 
     <script>
 
-        sumbtn.addEventListener("click", () => {
-            let uname = document.querySelector("#uname").value;
-            let email = document.querySelector("#email").value;
-            let pname = document.querySelector("#pname").value;
-            let cpname = document.querySelector("#cpname").value;
-            console.log(uname, email, pname, cpname)
+        document.getElementById("sumbtn").addEventListener("click", (event) => {
+            event.preventDefault();
 
-
-            function checkemail(email) {
-                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            }
-            function checkpassword(pname) {
-                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%#?&]{6,}$/;
-            }
-            function checkconfirmpassword(cpname) {
-                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%#?&]{6,}$/;
-            }
+            let uname = document.querySelector("#uname").value.trim();
+            let email = document.querySelector("#email").value.trim();
+            let pname = document.querySelector("#pname").value.trim();
+            let cpname = document.querySelector("#cpass").value.trim();
 
             let uerror = document.querySelector("#uerror");
             let emerror = document.querySelector("#emerror");
             let perror = document.querySelector("#perror");
             let cperror = document.querySelector("#cperror");
 
+
             uerror.innerHTML = "";
             emerror.innerHTML = "";
             perror.innerHTML = "";
             cperror.innerHTML = "";
 
-            let obj = [{
-                username: "kamalika",
-                password: "kamalika05",
-                email: "kamali05@gmail.com",
-                confirmpassword: "kamalika05"
-            }]
-
-            if (uname == "" && email == "" && pname == "" && cpname == "") {
-                uerror.innerHTML = "username is empty";
-                emerror.innerHTML = "email is empty";
-                perror.innerHTML = "password empty";
-                cperror.innerHTML = "cperror empty";
-            } else if (uname != "" && email != "" && pname == "" && cpname == "") {
-                perror.innerHTML = "password is empty";
-                cperror.innerHTML = "confirm password is empty"
-            } else if (uname == "" && email == "" && pname != "" && cpname != "") {
-                uerror.innerHTML = "user name is empty";
-                emerror.innerHTML = "email is empty";
-            } else if (uname == "") {
-                uerror.innerHTML = "user name is empty";
-            }
-            else if (email == "") {
-                emerror.innerHTML = "email is empty";
-            }
-            else if (pname == "") {
-                perror.innerHTML = "password is empty";
-            }
-            else if (cpname == "") {
-                cperror.innerHTML = "confirm password is empty";
+            function checkEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
             }
 
-            else {
-                if (uname != "kamalika") {
-                    alert('user name is wrong')
-                } else if (email != "kamali05@gmail.com") {
-                    if (validate(email) != "kamali05@gmail.com") {
-                        alert('must be applying  @ symbol')
-                    } else {
-                        alert('email is wrong')
-                    }
-                } else if (pname != "kamalika05") {
-                    if (validateform(pname) != "password".length < 6) {
-                        alert('password must be at least 6 character')
-                    } else {
-                        alert('password is wrong')
-                    }
-
-                } else if (cpname != "kamalika05") {
-                    if (validity(cpname) != "password".length < 6) {
-                        alert('password must be at least 6 character')
-                    } else {
-                        alert('confirm password is wrong')
-                    }
-
-                }
-                else {
-                    alert('login success')
-                }
-            }
-        })
-
-
-        localStorage.setItem('user', JSON.stringify(obj));
-        let a = JSON.parse(localStorage.getItem('user'))
-        console.log('data', a)
-
-
-        function eyeclick() {
-            let icon = document.querySelector("#eyeicon");
-            let attr = icon.getAttribute("class");
-
-            if (attr == "fa fa-eye-slash") {
-                let rattr = attr.replace("fa-eye-slash", "fa-eye");
-                icon.setAttribute("class", rattr);
-            } else {
-                let rattr = attr.replace("fa-eye", "fa-eye-slash");
-                icon.setAttribute("class", rattr);
+            function checkPassword(password) {
+                return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%#?&]{6,}$/.test(password);
             }
 
-            let pass = document.querySelector("#pname")
-            let atrval = pass.getAttribute('type');
-            if (atrval == "password") {
-                pass.setAttribute("type", "text");
-            } else {
-                pass.setAttribute("type", "password");
+
+            let hasError = false;
+
+            if (!uname) {
+                uerror.innerHTML = "Username is required";
+                hasError = true;
             }
-        }
+
+            if (!email) {
+                emerror.innerHTML = "Email is required";
+                hasError = true;
+            } else if (!checkEmail(email)) {
+                emerror.innerHTML = "Invalid email";
+                hasError = true;
+            }
+
+            if (!pname) {
+                perror.innerHTML = "Password is required";
+                hasError = true;
+            } else if (!checkPassword(pname)) {
+                perror.innerHTML = "Password must be at least 6 characters with a number";
+                hasError = true;
+            }
+
+            if (!cpname) {
+                cperror.innerHTML = "Confirm password is required";
+                hasError = true;
+            } else if (cpname !== pname) {
+                cperror.innerHTML = "Passwords do not match";
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+
+            const user = {
+                username: uname,
+                email: email,
+                password: pname
+            };
+
+            localStorage.setItem('user', JSON.stringify(user));
+            alert("Registration successful!");
+            window.location.href = "login.html";
+        });
 
     </script>
+
 
 </body>
 
