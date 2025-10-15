@@ -1,70 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+
 body {
     display: flex;
     justify-content: center;
-    padding: 50px;
-    background-color: #f4e8ff;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f9f5ff, #e8e0ff);
 }
+
 
 section {
-    margin: 60px;
-    width: 300px;
-    height: 450px;
-    display: grid;
-    justify-content: center;
-    padding:20px;
-    box-shadow: 3px 4px 3px rgb(165, 125, 163);
+    width: 340px;
+    padding: 30px 25px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(150, 120, 190, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-a {
-    text-decoration: none;
+
+section h1 {
+    font-size: 28px;
+    color: #5d3fd3;
+    margin-bottom: 20px;
 }
+
 
 .form-group {
-    margin-top: 12px;
-    font-size: 15px;
-    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+    text-align: left;
 }
 
+
+.form-group label {
+    font-size: 15px;
+    color: #333;
+}
+
+
 .form-group input {
-    width: 250px;
-    margin-top: 16px;
-    border-radius: 5px;
-    padding: 10px 20px;
-    position: relative;
-    border: none;
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
 }
 
 .error-msg {
-    color: red;
-    font-size: 15px;
+    color: #d22;
+    font-size: 13px;
+    margin-top: 4px;
     display: block;
-    margin-top: 5px;
 }
+
 
 .form-group button {
-    width: 290px;
-    margin-top: 20px;
-    border-radius: 5px;
+    width: 100%;
     padding: 10px;
+    margin-top: 5px;
     border: none;
-    background-color: rgba(80, 146, 66, 0.905);
+    background: linear-gradient(90deg, #7a5cff, #a678ff);
     color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.form-group button a {
-    text-decoration: none;
-    color: black;
+.form-group button:hover {
+    background: linear-gradient(90deg, #6a4df7, #8c63ff);
 }
 
-.form-group .bgclr {
-    background-color: rgb(114, 114, 174);
-}
 
-.form-group label {
-    font-weight: 150px;
-    font-size: 19px;
-}
-
-.option {
+h4 {
+    margin-top: 15px;
+    font-size: 14px;
     text-align: center;
+    color: #4a3b68;
+}
+
+h4 a {
+    color: #7a5cff;
 }
