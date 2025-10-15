@@ -44,7 +44,7 @@
         </div><br>
 
         <div>
-            <h4>Already have an account? <span><a href="login.html" style="text-decoration: none;">Login</a></span></h4>
+            <h4>Already have an account? <span><a href="index.html" style="text-decoration: none;">Login</a></span></h4>
         </div>
 
     </section>
@@ -53,6 +53,7 @@
 
         document.getElementById("sumbtn").addEventListener("click", (event) => {
             event.preventDefault();
+
 
             let uname = document.querySelector("#uname").value.trim();
             let email = document.querySelector("#email").value.trim();
@@ -121,7 +122,7 @@
 
             localStorage.setItem('user', JSON.stringify(user));
             alert("Registration successful!");
-            window.location.href = "login.html";
+            window.location.href = "index.html";
         });
 
     </script>

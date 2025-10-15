@@ -11,17 +11,17 @@ body {
 }
 
 section {
-    width: 320px;
+    
     height: 620px;
     display: grid;
     justify-content: center;
-    padding: 20px;
+    padding: 10px 80px ;
     box-shadow: 4px 4px 7px rgb(152, 149, 149);
     border-radius: 5px;
 }
 
 .form-group {
-    margin-top: 50px;
+    /* margin-top: 30px; */
     height: 45px;
     position: relative;
 }
@@ -53,4 +53,7 @@ section {
     color: white;
     font-size: 15px;
     font-weight: 150px;
+}
+h4{
+    margin-left: 30px;  
 }

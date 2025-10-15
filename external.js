@@ -107,7 +107,8 @@ function updatebadge() {
           <p>₹${item.price}</p>
             <button class="btn btn-outline-secondary fw-bold" style="width: 40px; height: 40px;" onclick="changeQty(${item.idno}, -1)">−</button>
             <span class="mx-3 fw-bold fs-5">${item.qty}</span>
-            <button class="btn btn-outline-secondary fw-bold fs-5" style="width: 40px; height: 40px;" onclick="changeQty(${item.idno}, 1)">+</button> <hr>
+            <button class="btn btn-outline-secondary fw-bold fs-5" style="width: 40px; height: 40px;" onclick="changeQty(${item.idno}, 1)">+</button> 
+            <hr>
      </div>`;
   });
 
@@ -140,7 +141,6 @@ function payNow() {
   saveToLocalStorage();
   updatebadge();
   renderCartTable();
-  renderPaidProducts();
   if (document.getElementById("cart-products")) {
     document.getElementById("cart-products").innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
   }
